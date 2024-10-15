@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <AppSideMenu :drawer="drawer" />
+    <AppSideMenu :drawer="drawer" @update:drawer="updateDrawer" />
     <div>
-      <AppHeader />
+      <AppHeader @changeState="toggleDrawer" />
       <v-main>
         <router-view />
       </v-main>
@@ -12,5 +12,19 @@
 </template>
 
 <script lang="ts" setup>
-  const drawer = ref(true)
+import { ref } from 'vue';
+
+const drawer = ref(true);
+
+onMounted(() => {
+  window.innerWidth >= 1024 ? drawer.value = true : drawer.value = false;
+})
+
+function updateDrawer(value: boolean) {
+  drawer.value = value;
+}
+
+function toggleDrawer() {
+  drawer.value = !drawer.value;
+}
 </script>

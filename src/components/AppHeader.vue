@@ -1,6 +1,6 @@
 <template>
   <v-app-bar>
-    <v-app-bar-nav-icon v-if="$vuetify.display.mdAndDown" />
+    <v-app-bar-nav-icon v-if="$vuetify.display.mdAndDown" @click="emitChange" />
     <v-app-bar-title>header</v-app-bar-title>
     <template #append>
       <v-btn icon slim>
@@ -16,4 +16,11 @@
   </v-app-bar>
 </template>
 <script lang="ts" setup>
+import { defineEmits } from 'vue';
+
+const emit = defineEmits(['changeState']);
+
+function emitChange() {
+  emit('changeState');
+}
 </script>

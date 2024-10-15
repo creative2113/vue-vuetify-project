@@ -1,13 +1,25 @@
 <template>
-  <v-navigation-drawer >
+  <v-navigation-drawer :model-value="drawer" @update:model-value="updateDrawer">
     <v-list item-props :items="links" />
   </v-navigation-drawer>
 </template>
 
-<script lang="ts" setup>
-defineProps({
-  drawer: Boolean
-})
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  drawer: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['update:drawer']);
+
+function updateDrawer(value) {
+  emit('update:drawer', value);
+}
+
 const links = ref([
   {
     title: "Home",
