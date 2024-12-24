@@ -21,6 +21,7 @@ Set up your project using your preferred package manager. Use the corresponding 
 | [pnpm](https://pnpm.io/installation)                          | `pnpm install` |
 | [bun](https://bun.sh/#getting-started)                        | `bun install`  |
 
+
 After completing the installation, your environment is ready for Vuetify development.
 
 ## ✨ Features
